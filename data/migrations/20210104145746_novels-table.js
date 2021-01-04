@@ -1,6 +1,5 @@
-
 exports.up = function(knex) {
-  return knex.schema.createTable('novels', tbl => {
+  return knex.schema.createTable('novels', (tbl) => {
     tbl.increments('id').notNullable().unique().primary().unsigned();
     tbl.string('title').notNullable().unique();
     tbl.string('description').notNullable();

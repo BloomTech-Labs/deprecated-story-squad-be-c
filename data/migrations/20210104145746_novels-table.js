@@ -1,4 +1,4 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema.createTable('novels', (tbl) => {
     tbl.increments('id').notNullable().unique().primary().unsigned();
     tbl.string('title').notNullable().unique();
@@ -8,6 +8,6 @@ exports.up = function(knex) {
   });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
     return knex.schema.dropTableIfExists('novels');
 };

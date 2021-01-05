@@ -1,13 +1,13 @@
 exports.up = function (knex) {
-  return knex.schema.createTable('novels', (tbl) => {
-    tbl.increments('id').notNullable().unique().primary().unsigned();
-    tbl.string('title').notNullable().unique();
-    tbl.string('description').notNullable();
-    tbl.integer('chapters').notNullable();
-    tbl.integer('pages').notNullable().unsigned();
+  return knex.schema.createTable('Novels', (tbl) => {
+    tbl.increments('ID').notNullable().unique().primary().unsigned();
+    tbl.string('Title').notNullable().unique();
+    tbl.string('Description').notNullable();
+    tbl.integer('Chapters').notNullable();
+    tbl.integer('Pages').notNullable().unsigned();
   });
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTableIfExists('novels');
+  return knex.schema.dropTableIfExists('Novels');
 };

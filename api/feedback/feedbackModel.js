@@ -17,6 +17,4 @@ const getSquadIDFromChildID = (ChildID) => {
     .select(['S.ID', 'M.ID AS MemberID']);
 };
 
-module.exports = {
-
-};
+module.exports = {};

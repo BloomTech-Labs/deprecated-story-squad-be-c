@@ -3,17 +3,19 @@ const router = require('express').Router();
 const { ops } = require('../../lib');
 const { authRequired } = require('../middleware');
 
-const Game = require('./gameModel');
+//Not using this yet
+//const Feedback = require('./feedbackModel');
 
+//Need to finish editing this swagger documentation
 /**
  * @swagger
- * /game/points:
+ * /feedback/:
  *  post:
- *    summary: Send a child's point assignments to the server to be stored
+ *    summary: Send emoji feedback for a writing or drawing
  *    security:
  *      - okta: []
  *    tags:
- *      - Gamification
+ *      - Feedback
  *    requestBody:
  *      description: An array containing two points objects, one for each submission on
  *                   the team (the child's and their teammate's). It is highly recommended
@@ -43,10 +45,20 @@ const Game = require('./gameModel');
  *      500:
  *        $ref: '#/components/responses/DatabaseError'
  */
-router.post('/points', authRequired, (req, res) => {
-    const points = req.body;
-  
-    ops.postMult(res, Game.assignPoints, 'Submission', points);
-  });
+
+//Test route
+router.get('/', (req, res) => {
+  res.status(200).json({ status: 'Success!' });
+});
+
+//Need to add back authRequired middleware when done testing
+router.post('/', (req, res) => {
+  const feedback = req.body;
+
+  res.status(200).json({ feedback: feedback, status: 'Success!' });
+
+  //need to write a custom ops function to use here, I think in crudOps.js
+  //ops.postMult(res, Game.assignPoints, 'Submission', points);
+});
 
 module.exports = router;

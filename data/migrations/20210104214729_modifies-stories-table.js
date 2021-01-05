@@ -12,7 +12,7 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema.table('Stories', (tbl) => {
-    tbl.dropColum('NovelID');
-    tbl.dropColum('Chapter');
+    tbl.dropColumn('NovelID');
+    tbl.dropColumn('Chapter');
   });
 };

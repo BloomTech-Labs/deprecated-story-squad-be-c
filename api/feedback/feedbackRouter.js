@@ -9,14 +9,13 @@ const { authRequired } = require('../middleware');
 //Need to add swagger documentation for the routes
 
 //Test route
-router.get('/', (req, res) => {
+router.get('/', authRequired, (req, res) => {
   res.status(200).json({ endpoint: 'Feedback Router' });
 });
 
 //This endpoint will be used to post emoji feedback for a submission
 //May need a submission id in the route, depending how you set it up
-//Need to add back authRequired middleware when done testing
-router.post('/', (req, res) => {
+router.post('/', authRequired, (req, res) => {
   res.status(200).json({ endpoint: "Post emoji feedback" });
 
   //An ops function will be used for posting to the backend, ex:
